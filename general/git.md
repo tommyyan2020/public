@@ -16,11 +16,20 @@
 
 ### 免密登录
 
+- 教程：https://www.bilibili.com/video/BV1a34y1s7qV
+
 - 注意这个key 是公钥,pub结尾那个
 
 ![1652770232753](images/1652770232753.png)
 
+![1652772145163](images/1652772145163.png)
 
+```bash
+ git remote add origin_ssh git@github.com:tommyyan2020/public.git
+ git push origin_ssh master
+```
+
+![1652772582790](images/1652772582790.png)
 
 ### 参与开源项目开发
 
