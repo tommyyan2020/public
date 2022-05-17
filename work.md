@@ -9,6 +9,8 @@
 - github--pr 详细步骤 https://blog.csdn.net/qianfengkui/article/details/110820779
 - github提交pr https://blog.csdn.net/gentleman_hua/article/details/123816150
 - Github 使用经典问题：如何同步 fork 项目原仓库的更新 https://zhuanlan.zhihu.com/p/291845721
+- 把网站相关的内容搬到github了，再也不用担心了：https://github.com/tommyyan2020/public
+- 总结了一下：[git相关](/general/git.md)
 
 ## 16日
 
