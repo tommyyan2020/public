@@ -4,14 +4,6 @@
 
 ## 常用命令
 
-### 添加文件
-
-```bash
-# 添加目录下所有文件
-git add .
-
-```
-
 
 
 ## github
@@ -25,6 +17,7 @@ git add .
 ### 免密登录
 
 - 教程：https://www.bilibili.com/video/BV1a34y1s7qV
+- 也可以本地配置一个文件，配上用户名密码，参考这个教程：http://www.edbiji.com/doccenter/showdoc/74/nav/3283.html
 
 - 注意这个key 是公钥,pub结尾那个
 
@@ -34,6 +27,8 @@ git add .
 
 ```bash
  git remote add origin_ssh git@github.com:tommyyan2020/public.git
+ git config --global user.name "tommyyan2020"
+ git config --global user.email 3965743@qq.com
  git push origin_ssh master
 ```
 
