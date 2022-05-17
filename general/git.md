@@ -4,7 +4,12 @@
 
 ## 常用命令
 
+### 添加文件
 
+```bash
+# 添加目录下所有文件
+git add .
+```
 
 ## github
 
@@ -30,6 +35,7 @@
  git config --global user.name "tommyyan2020"
  git config --global user.email 3965743@qq.com
  git push origin_ssh master
+ git branch --set-upstream-to=origin_ssh/master
 ```
 
 ![1652772582790](images/1652772582790.png)
