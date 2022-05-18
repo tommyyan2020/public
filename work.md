@@ -2,6 +2,14 @@
 
 # 2022年5月
 
+## 18日
+
+### phmap
+
+- github：https://github.com/greg7mdp/parallel-hashmap
+- 教程：https://cloud.tencent.com/developer/article/1839213
+- starrocks源代码：be\src\exec\vectorized\aggregate\agg_hash_map.h
+
 ## 17日
 
 ### github
