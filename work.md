@@ -2,6 +2,129 @@
 
 # 2022年5月
 
+## 26日
+
+### 跳表
+
+- [跳表skiplist](/general/theory/skiplist.md)
+
+
+### doris源代码
+
+- 把这个看完了，更新到笔记里面了：Apache Doris 源码阅读与解析系列直播——第2讲 Stream Load 导入任务的执行流程: https://www.bilibili.com/video/BV1bU4y1w76e
+
+## 25日
+
+### 了解apipost
+
+- https://time.geekbang.org/dailylesson/detail/100110720?utm_term=hezuo0509&utm_source=geektime-app&utm_medium=meiriyike
+
+### 了解RocksDB
+
+- RocksDB内部数据组织方式及性能压测: https://www.bilibili.com/video/av92909960
+- [rocksdb学习笔记](/bigdata/rocksdb/rocksdb.md)
+
+### varint
+
+- Varint https://blog.csdn.net/zgaoq/article/details/103182952
+- varint压缩算法详解  https://blog.csdn.net/weixin_43708622/article/details/111397322
+
+## 22日
+
+### 办公环境
+
+- 在不同环境条件（公司、家、南山家）下切换，一直在看如何统一成一套环境，不然上下文切换的代价太大了，在一个环境下的基本诉求
+
+  - 基本诉求：看视频（B站）、写博客（MD）、源代码管理、开发/测试环境（1个主的虚拟环境、2个次的虚拟环境）
+  - 机器配置要求：32G内存（虚拟机开发/测试环境：8+4+4）、20核以上cpu（虚拟机开发/测试环境：6+3+3）、存储（整体：512G+2T，虚拟机开发/测试环境：500G + 100G + 100G ，历史文档/代码：1T+），屏幕（500nit+，DPI > 98%）
+
+- 想购入一台笔记本搞定问题，相较于目前方案
+
+  - 优势：所有内容放笔记本上，不需要切换环境；可以双屏；
+
+  - 劣势：笔记本比较难选，需要i7-12700h以上机型，内存和硬盘需要自己弄，投入较大；笔记本需要背着，有点辛苦；
+
+  - 备选笔记本：
+
+    - ROG幻16：https://item.jd.com/100018322085.html，需要加16G以上内存，2T加硬盘，估计12K+投入
+    - 华硕无双：https://item.jd.com/100035259546.html，需要加16G以上内存，2T加硬盘，估计7K+投入
+    - 华硕灵耀Pro16 ：https://item.jd.com/100015624453.html 10K，这款cpu是amd的，差点（ 5900HX，8C/16T ），其他不用加了，被12代i5秒了
+
+  - 目前先用着吧，看情况，笔记本总要买一个的，不然太不方便了，公司笔记本有点差，而且各种管控太麻烦，参考资料：
+
+    - 如何评价 ROG 星云原画屏？：https://www.zhihu.com/question/509929000
+    - 还是oled屏吧，miniled的可视角太小了
+
+     ![img](https://i1.hoopchina.com.cn/blogfile/20218/26/BbsImg_212532325108208_1629985680_s_478266_o_w_690_h_518_16098.png?x-oss-process=image/resize,w_800/format,webp) 
+
+- 现有方案
+  - 优点：省钱、省力
+  - 缺点
+    - 文档更新四种方式：目前文档在master（centos 8）和github上都有保存，维护目前以方案3为主，辅以方案2
+      - 方案1：拉github：更新不方便，版本同步麻烦，不能更新完了就可见，这个还是算了
+      - 方案2：远程桌面登录到云服务器：窗口有点怪，也受限于网络环境、输入法输入有点慢
+      - 方案3：sshfs到本地：有时候网络不好时很崩溃，其他时刻其实还好
+      - 方案4：vscode直接ssh远程到云服务器更新（客户端版、web版本均可）：更新普通文件还行，没有typora好用，另外就是图片不方便
+    - 视频观看
+      - 这个方式最大的问题，只能在本地观看，用远程桌面看视频，你懂的
+    - 源代码管理
+      - 各个机器上都保存一份，尽量在本地看代码
+      - 自己维护的代码：
+        - vscode客户端远程到云服务器上修改编译，本地不保存
+        - 不敏感的代码后面放git上一份，避免丢失
+
+## 20日
+
+### doris向量化引擎优化
+
+- 视频：https://www.bilibili.com/video/BV1Q5411S7Nd
+
+- 优化方向
+
+![1653012171009](images/1653012171009.png)
+
+![1653012335760](images/1653012335760.png)
+
+- 优化方法：
+
+  - 两种，一个注意代码的写法，编译器自动向量化（大多数、简单场景）；直接用simd指令集（少数、复杂场景）
+  - 大的数据量的计算，要逐行看
+
+  ![1653012529824](images/1653012529824.png)
+
+  ![1653012616182](images/1653012616182.png)
+
+- 
+
+## 19日
+
+### 日常
+
+- Apache Doris 极速 1.0 版本特性解析与未来规划：https://www.bilibili.com/video/BV1V54y1Z7GY
+  - 内存管理科学了不少
+
+![1652953204030](images/1652953204030.png)
+
+- StarRocks 社区& OceanBase 社区& CloudCanal 社区：如何构建简单高效的现代化数据栈 https://www.bilibili.com/video/BV1ju411r7UX
+
+  - etl中，t的能力抽象出来，这个就是cloudcanal干的事情
+
+  ![1652930917795](images/1652930917795.png)
+
+- StarRocks 极客之夜：https://www.bilibili.com/video/BV1w34y1x76G
+
+![1652932896766](images/1652932896766.png)
+
+![1652933070143](images/1652933070143.png)
+
+- 深入解析OceanBase数据库：https://www.bilibili.com/video/BV1DT4y1J7zw
+  - 优化两阶段提交机制：协调者不写日志；二阶段多数派写日志成功即返回客户端成功，延时进行第二阶段提交；
+  - 异地的机房要是少数派，不然无法享受本地多数派提交成功较少延时的特性；
+
+![1652930606003](images/1652930606003.png)
+
+![1652930658435](images/1652930658435.png)
+
 ## 18日
 
 ### phmap

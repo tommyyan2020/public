@@ -6,17 +6,19 @@
   - 门户：doris.apache.com
   - 文档：http://doris.apache.org/master/zh-CN/getting-started/basic-usage.html
   - github：https://github.com/apache/incubator-doris
+  - B站：https://space.bilibili.com/362350065
 - StarRocks（DorisDB）:
   - 门户：http://www.starrocks.com/
   - 文档：https://docs.starrocks.com/ https://github.com/StarRocks/docs.zh-cn
   - 代码：https://github.com/StarRocks/starrocks
   - 贡献指南：https://github.com/StarRocks/community/tree/main/Contributors/guide
   - 社区论坛：https://forum.starrocks.com/
-  - 我的学习笔记： [Starrocks学习笔记](/bigdata/doris/starrocks-note)
+  - 我的学习笔记： [Starrocks学习笔记](/bigdata/doris/starrocks-note.md)
+  - 我总结的一些内容：[starrocks总结](/bigdata/doris/starrocks.md)
   - B站：https://space.bilibili.com/1273141509/
   - 康凯森： https://blog.bcmeng.com/ 
-  - 流木随风：https://blog.csdn.net/ult_me
-
+- 流木随风：https://blog.csdn.net/ult_me
+  
 - [PDF:DorisDB官方介绍](/bigdata/doris/%E9%BC%8E%E7%9F%B3%E6%95%B0%E6%8D%AE202102.pdf ":ignore")
 - [PDF:Doris的数据导入机制以及原子性保证](/bigdata/doris/Doris的数据导入机制以及原子性保证-正式版-0.pdf ":ignore")
 - [PDF:ubuntu下Apache doris Be开发调试](/bigdata/doris/ubuntu下Apache%20doris%20Be开发调试.pdf ":ignore")

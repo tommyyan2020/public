@@ -6,6 +6,11 @@
 
 ## 5月
 
+- 26日：[跳表skiplist](/general/theory/skiplist.md)
+- 25日：[rocksdb学习笔记](/bigdata/rocksdb/rocksdb.md)
+- 22日：准备进行整理 [doris源代码解析](/bigdata/doris/doris-sourcecode.md)
+  - doris官方在b站上有教程，先从这个开始吧，后面starrocks的把相关的差异再增加到starrocks源码分析的文档
+- 20日：准备进行整理 [StaRocks源代码解析](/bigdata/doris/starrocks-sourcecode.md)
 - 17日：总结了一下git相关的，持续更新中：[git相关](/general/git.md)
 - 13日： [redis安装](/bigdata/redis/install.md)
 - 12日：前面整理的[starrocks的学习笔记](/bigdata/doris/starrocks-note.md)

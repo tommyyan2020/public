@@ -383,5 +383,10 @@ int main(int argc, char* argv[]) {
 
 ```
 
+## 特性
 
+### varint
+
+- Varint https://blog.csdn.net/zgaoq/article/details/103182952
+- varint压缩算法详解  https://blog.csdn.net/weixin_43708622/article/details/111397322
 
