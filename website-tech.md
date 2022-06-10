@@ -2,6 +2,19 @@
 
 # 常用技术网站和工具
 
+# 0 效率
+
+## github
+
+### github仓库限制
+
+结论：单个文件100M（超过可以用工具），整个仓库100G，够用了
+
+- github给每人分配了多大的存储空间：https://www.zhihu.com/question/29514576/answer/972520133
+- 解决Github单个文件100M以下的限制 ：https://blog.csdn.net/xxxvvvop/article/details/83098669
+
+## 26日
+
 # 1 大数据
 
 ## Hadoop
@@ -48,6 +61,19 @@
 
 
 # 3 通用技术
+
+## RPC
+
+### 调试工具
+
+- 【go-zero】gRpc debug调试工具 BloomRpc 与 Grpc UI 帮助微服务 rpc 开发便捷调试 https://blog.csdn.net/wanglei19891210/article/details/124624428
+- postman调试rpc接口:https://blog.csdn.net/yzpbright/article/details/118597376
+
+## Linux
+
+### Release Edition
+
+- Fedora/RHEL/CentoOS/CentoOS Stream/的区别 https://mp.weixin.qq.com/s?__biz=MzU1NDA4NjU2MA==&mid=2247561093&idx=1&sn=ba67cba85577dc0798e4b4f62b7051d8
 
 ## 计算机基础知识
 

@@ -1,6 +1,41 @@
 # 流水账
 
+# 2022年6月
+
+## 4日
+
+### rpc调试工具
+
+一直想找找看看把rpc本地化的方案，如通过线程模型模拟rpc请求，这样本地调试、测试方便很多，如果没有还是通过单元测试/集群测试环境来弄吧
+
+- 【go-zero】gRpc debug调试工具 BloomRpc 与 Grpc UI 帮助微服务 rpc 开发便捷调试 https://blog.csdn.net/wanglei19891210/article/details/124624428
+- postman调试rpc接口:https://blog.csdn.net/yzpbright/article/details/118597376
+
+### kylin on parquet
+
+看了一下百度网盘里面的分享视频，主要是方案介绍和全局字典的内容，感觉全局字典这个可以
+
+- 方案：分桶存储、id应该是桶id+内部id，感觉可以用两个varint表示
+- 用了hdfs存储，副本一致性问题解决了，如果这个自己弄还比较麻烦
+
 # 2022年5月
+
+## 28日
+
+### 虚拟机共享文件
+
+- 最后找了各种问题，发现是centos要安装xwindows系统才能实现这个功能。。
+
+![1653760068798](images/1653760068798.png)
+
+## 27日
+
+### github仓库限制
+
+结论：单个文件100M（超过可以用工具），整个仓库100G，够用了
+
+- github给每人分配了多大的存储空间：https://www.zhihu.com/question/29514576/answer/972520133
+- 解决Github单个文件100M以下的限制 ：https://blog.csdn.net/xxxvvvop/article/details/83098669
 
 ## 26日
 

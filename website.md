@@ -1,5 +1,11 @@
 # 效率/办公/生产力
 
+## windows
+
+### 蓝牙
+
+- 如何避免蓝牙设备被断开：https://jingyan.baidu.com/article/1612d5007362dba30e1eee9f.html
+
 ## 工具
 - 微信公众号 Markdown 编辑器 - OpenWrite
   https://md.openwrite.cn/

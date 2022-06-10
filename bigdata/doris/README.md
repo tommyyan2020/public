@@ -5,12 +5,15 @@
 - Doris：
   - 门户：doris.apache.com
   - 文档：http://doris.apache.org/master/zh-CN/getting-started/basic-usage.html
+  - 官方doris微信文章列表：https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg5MDEyODc1OA==&action=getalbum&album_id=1507526553017090049
   - github：https://github.com/apache/incubator-doris
   - B站：https://space.bilibili.com/362350065
-- StarRocks（DorisDB）:
+  - 我收集整理、总结的[doris源码解析](/bigdata/doris/doris-sourcecode.md)
+  
+  StarRocks（DorisDB）:
   - 门户：http://www.starrocks.com/
   - 文档：https://docs.starrocks.com/ https://github.com/StarRocks/docs.zh-cn
-  - 代码：https://github.com/StarRocks/starrocks
+  - github：https://github.com/StarRocks/starrocks
   - 贡献指南：https://github.com/StarRocks/community/tree/main/Contributors/guide
   - 社区论坛：https://forum.starrocks.com/
   - 我的学习笔记： [Starrocks学习笔记](/bigdata/doris/starrocks-note.md)

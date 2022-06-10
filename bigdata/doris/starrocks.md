@@ -63,3 +63,28 @@ docker exec -it starrocks-dev /bin/bash
  cp ../../../output/be/lib/jvm/amd64/server/libjvm.so /usr/lib64/
 ```
 
+## 工具
+
+### 调试工具
+
+- 文件：[SRDebugUtil.tar.gz](/bigdata/doris/SRDebugUtil.tar.gz ":ignore")
+- 用法
+
+```bash
+./bin/pstack {be_pid}
+```
+
+
+
+
+
+
+
+## 配置
+
+### BE
+
+#### 日志
+
+sys_log_verbose_modules=txn_manager,delta_writer,internal_service
+如果要重启的话，在be.INFO加下这个配置，打印一下日志
