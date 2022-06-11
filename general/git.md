@@ -55,6 +55,8 @@ git config --global credential.helper store
 
 ![1654920742714](images/1654920742714.png)
 
+![1654934214233](images/1654934214233.png)
+
 ### 参与开源项目开发
 
 #### 1 Fork项目到自己github账号下
