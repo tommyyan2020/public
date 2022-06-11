@@ -21,6 +21,8 @@ git add .
 
 ### 免密登录
 
+#### ssh方式
+
 - 教程：https://www.bilibili.com/video/BV1a34y1s7qV
 - 也可以本地配置一个文件，配上用户名密码，参考这个教程：http://www.edbiji.com/doccenter/showdoc/74/nav/3283.html
 
@@ -39,6 +41,19 @@ git add .
 ```
 
 ![1652772582790](images/1652772582790.png)
+
+#### https方式
+
+- 参考：https://baijiahao.baidu.com/s?id=1717846683433344604&wfr=spider&for=pc
+
+```bash
+git config --global credential.helper store
+
+```
+
+
+
+![1654920742714](images/1654920742714.png)
 
 ### 参与开源项目开发
 
