@@ -84,6 +84,14 @@ date -d@1647918518
 du -sh .[!.]*
 ```
 
+## 服务
+
+### 所有已经启动的服务
+
+```bash
+systemctl list-unit-files | grep enabled
+```
+
 
 
 # 文本
