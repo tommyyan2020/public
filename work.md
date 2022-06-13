@@ -4,6 +4,11 @@
 
 ## 12日
 
+### doris源代码阅读
+
+- 总算整完了第五讲：https://www.bilibili.com/video/BV1B44y1i7RZ
+- 第六讲：https://www.bilibili.com/video/BV13F411Y7Je
+
 ### 最佳生产力实践
 
 总算搞定了算是最完美的生产力最佳的方案了，基本的方案如下
@@ -21,9 +26,11 @@
 - 两套开发测试环境
   - 虚拟机：
     - 网络：host only（主机可以访问虚拟机）、nat（虚拟机可以访问外网）
-    - 镜像：两套环境相同，可以两套环境可以共用，不过启动的服务不同
+    - 镜像：
+      - 两套环境相同，可以两套环境可以共用，不过启动的服务不同
+      - master ：100g os image、200g code + docs image、optional disk image
   - 本地环境
-    - windows 11 + 虚拟机（Virtual box）
+    - windows 11 + 虚拟机（Virtual box） 1 master（8g，4core，常开） + 2 node（2g，2core，一般不用开）
     - 虚拟机
       - 镜像：从云上环境直接复制过来，不用在进行各种环境安装，直接可以用；去掉一些不需要的服务启动
       - 磁盘扩充：基本够用，不常用的建立一些usb硬盘的镜像，动态扩展
