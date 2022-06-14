@@ -2,6 +2,14 @@
 
 # 2022年6月
 
+## 14日
+
+### doris源代码阅读
+
+- 第9讲：https://www.bilibili.com/video/BV15i4y1Z7AL/ 元数据管理
+- 第8讲：https://www.bilibili.com/video/BV1Lr4y1Q7Ho/ 查询优化
+- 第7讲：https://www.bilibili.com/video/BV1V44y1Y7Ro/ 函数
+
 ## 12日
 
 ### doris源代码阅读
