@@ -4,6 +4,10 @@
 
 # 2022年
 
+## 6月
+
+- 16日：准备研究一下百度rpc，在这里[baidu rpc](/language/util/brpc.md)
+
 ## 5月
 
 - 26日：[跳表skiplist](/general/theory/skiplist.md)
@@ -23,7 +27,7 @@
 
 - 28日 [C++11学习笔记](/language/cpp/cpp11.md)
 - 26日 [xmacro实现c++编译期反射](/language/cpp/inner-reflect.md)
-- 26日 [protobuf的使用](/language/cpp/protobuf.md)
+- 26日 [protobuf的使用](/language/util/protobuf.md)
 
 ## 2月
 
@@ -34,7 +38,7 @@
 ## 12月
 
 - 31日 [Java程序执行&Flink程序执行](/bigdata/flink/flink_run.md)
-- 31日 [Maven配置中Dependency域的scope选项](/general/language/maven_dependency_scope.md)
+- 31日 [Maven配置中Dependency域的scope选项](//language/java/maven_dependency_scope.md)
 - 29日 [markdown的一些心得](/general/markdown-note.md)
 - 29日 [windows下搭建web环境](/general/windows-env-install.md)
 
@@ -47,7 +51,7 @@
 - 21日】[Presto集群安装](/bigdata/presto/install.md)
 - 【19日】[DorisDB相较于ApacheDoris的优势](/bigdata/doris/apachedoris-vs-dorisdb.md)
 - 【13日】[源代码解读：Flink datastream添加数据源的例子：transaction模块](/bigdata/flink/sourcecode/datastream/addsource_transaction.md)
-- 【8日】[maven使用大全](/general/language/maven.md)
+- 【8日】[maven使用大全](/language/java/maven.md)
 - 【7日】[基于FlinkSQL的实时数仓实践](/bigdata/flink/case-flinksql-dw.md)
 
 ## 6月

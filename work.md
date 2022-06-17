@@ -2,6 +2,28 @@
 
 # 2022年6月
 
+## 17日
+
+### brpc
+
+- 基本上是基于proto2弄的，了解了一下proto2和proto3的区别:https://solicomo.com/network-dev/protobuf-proto3-vs-proto2.html
+- 研究了一下git如何增加子模块。就是修改根目录下一个文件：.gitmodules：不过工业化的产品这个不是一个好习惯，还是依赖固定的版本吧，质量更可靠，按照官方的安装方法通过库而不是依赖
+
+framework项目
+
+- 准备启动一个framework项目，用来积累各种工具、开源软件中的好的内容
+- 
+
+## 16日
+
+### starrocks代码分析
+
+- master已经分了一个--cn的启动选项，启动一个阉割版本，去掉了http方式的上传、下载、元数据等功能
+
+### baidu rpc
+
+- 准备试一下这个，[baidu rpc](/language/util/brpc.md)
+
 ## 14日
 
 ### doris源代码阅读
