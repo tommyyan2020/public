@@ -1,4 +1,4 @@
-# googletest安装使用
+# google-test安装使用
 
 ## 参考
 
@@ -10,6 +10,7 @@
 - 安装参考：https://blog.csdn.net/liuzubing/article/details/107706818
 - 非官方教程：https://zhuanlan.zhihu.com/p/369466622
 - 非官方教程：https://www.jb51.net/article/220288.htm#_label8
+- 非官方教程：https://blog.csdn.net/yyz_1987/article/details/124101531
 - b站视频：https://www.bilibili.com/video/BV1N54y1q7mv
 
 ## 安装教程
