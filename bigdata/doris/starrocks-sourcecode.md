@@ -190,6 +190,30 @@ tree -d -L 3
 
   
 
-  - 
+  
 
-    
+# BE
+
+## 主流程
+
+- 目前通过 --cn的启动参数可以启动一个阉割版本，不支持通过http上传、下载、元数据查看等功能，这两个部分的代码也分开了
+- 
+
+## agent
+
+处理 rpc调用：
+
+- 协议文件：应该是直接引用了gensrc\build目录
+- 服务：backend_service.h/cpp::doris::BackendService::create_service
+  - 新版本移动到了service_be目录下了
+- 入口类：backend_service.h/cpp::BackendService : public BackendServiceIf
+
+
+
+### thrift协议
+
+- AgentService.thrift
+
+  
+
+  

@@ -2,6 +2,107 @@
 
 # 2022年6月
 
+## 17日
+
+### brpc
+
+- 基本上是基于proto2弄的，了解了一下proto2和proto3的区别:https://solicomo.com/network-dev/protobuf-proto3-vs-proto2.html
+- 研究了一下git如何增加子模块。就是修改根目录下一个文件：.gitmodules：不过工业化的产品这个不是一个好习惯，还是依赖固定的版本吧，质量更可靠，按照官方的安装方法通过库而不是依赖
+
+### framework项目
+
+- 准备启动一个framework项目，用来积累各种工具、开源软件中的好的内容
+
+### gflags
+
+- 测试了一下，还挺好用的
+
+```c++
+#include "../header/common.h"
+#include <gflags/gflags.h>
+
+// g++ gflagstest.cpp -o gtest -lgflags -lpthread 	
+#include <gflags/gflags.h>
+
+DEFINE_string(config_file, "./config/default.yaml", "config file path");
+
+# g++ gflagstest.cpp -o gtest -lgflags  -lpthread
+# test_case 
+# ./gtest  "11111"  -config_file="asdhajcsd"  "wwwww"
+# ./gtest  "11111"  -config_file1="asdhajcsd"  "wwwww" 
+
+
+int main(int argc, char **argv) {
+    google::ParseCommandLineFlags(&argc, &argv, true);
+    printf("%s\n", FLAGS_config_file.c_str());
+    for (size_t i = 0; i < argc; i++)
+    {
+            printf("%s\n", argv[i]);
+    }
+    return 0;
+}
+
+```
+
+### benchmark
+
+- 跟gtest差不多，不过重点在进行性能测试，而非结果
+- 参考：https://www.cnblogs.com/apocelipes/p/14929728.html
+
+```cpp
+#include "../header/common.h"
+#include <benchmark/benchmark.h>
+
+// 参考
+// - https://www.cnblogs.com/apocelipes/p/14929728.html
+// g++ test.cc -lpthread -lbenchmark -lbenchmark_main -o test
+
+template <typename T, std::size_t length, bool is_reserve = true>
+void bench_vector_reserve(benchmark::State& state)
+{
+	for (auto _ : state) {
+		std::vector<T> container;
+		if constexpr (is_reserve) {
+			container.reserve(length);
+		}
+		for (std::size_t i = 0; i < length; ++i) {
+			container.push_back(T{});
+		}
+	}
+}
+
+// 下面这个是错误的
+// BENCHMARK( bench_vector_reserve<std::string,100> );
+
+auto t = bench_vector_reserve<std::string,100> ;
+BENCHMARK(t);
+
+
+BENCHMARK_TEMPLATE( bench_vector_reserve, std::string, 100);
+BENCHMARK_TEMPLATE(bench_vector_reserve, std::string, 1000);
+BENCHMARK_TEMPLATE(bench_vector_reserve, std::string, 10000);
+BENCHMARK_TEMPLATE(bench_vector_reserve, std::string, 100000);
+BENCHMARK_TEMPLATE(bench_vector_reserve, std::string, 100, false);
+BENCHMARK_TEMPLATE(bench_vector_reserve, std::string, 1000, false);
+BENCHMARK_TEMPLATE(bench_vector_reserve, std::string, 10000, false);
+BENCHMARK_TEMPLATE(bench_vector_reserve, std::string, 100000, false);
+
+```
+
+
+
+
+
+## 16日
+
+### starrocks代码分析
+
+- master已经分了一个--cn的启动选项，启动一个阉割版本，去掉了http方式的上传、下载、元数据等功能
+
+### baidu rpc
+
+- 准备试一下这个，[baidu rpc](/language/util/brpc.md)
+
 ## 14日
 
 ### doris源代码阅读

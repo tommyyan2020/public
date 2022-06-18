@@ -2,26 +2,60 @@
 
 
 
-## 常用命令
+# 常用操作
 
-### 添加文件
+## 添加文件
 
 ```bash
 # 添加目录下所有文件
 git add .
 ```
 
-## github
+## 添加依赖的项目
 
-### 参考
+- 参考：https://blog.csdn.net/boildoctor/article/details/122784055
+- 不过对于一些公共的不易变动的库可以用这种方式，毕竟比较稳定，对于大的项目还是建议以release版本为主
+
+### 下载
+
+```bash
+# 下载整个仓库带依赖项目
+git clone --recursive 仓库名
+# 更新依赖项目
+cd 仓库目录
+git submodule update --init --recursive
+# 或者直接进入子模块项目目录去
+git pull
+```
+
+
+
+### 新增
+
+编辑仓库根目录下的 .gitmodules 文件，例子(levelDB)
+
+```ini
+[submodule "third_party/googletest"]
+	path = third_party/googletest
+	url = https://github.com/google/googletest.git
+[submodule "third_party/benchmark"]
+	path = third_party/benchmark
+	url = https://github.com/google/benchmark
+```
+
+
+
+# github
+
+## 参考
 
 - github--pr 详细步骤 https://blog.csdn.net/qianfengkui/article/details/110820779
 - github提交pr https://blog.csdn.net/gentleman_hua/article/details/123816150
 - Github 使用经典问题：如何同步 fork 项目原仓库的更新 https://zhuanlan.zhihu.com/p/291845721
 
-### 免密登录
+## 免密登录
 
-#### ssh方式
+### ssh方式
 
 - 教程：https://www.bilibili.com/video/BV1a34y1s7qV
 - 也可以本地配置一个文件，配上用户名密码，参考这个教程：http://www.edbiji.com/doccenter/showdoc/74/nav/3283.html
@@ -42,7 +76,7 @@ git add .
 
 ![1652772582790](images/1652772582790.png)
 
-#### https方式
+### https方式
 
 - 参考：https://baijiahao.baidu.com/s?id=1717846683433344604&wfr=spider&for=pc
 
@@ -57,15 +91,15 @@ git config --global credential.helper store
 
 ![1654934214233](images/1654934214233.png)
 
-### 参与开源项目开发
+## 参与开源项目开发
 
-#### 1 Fork项目到自己github账号下
+### 1 Fork项目到自己github账号下
 
 ![1652765121860](images/1652765121860.png)
 
 ![1652765070986](images/1652765070986.png)
 
-#### 2、clone到本地
+### 2、clone到本地
 
 - windows
 

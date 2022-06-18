@@ -1096,8 +1096,8 @@ ordinal：行号
 ### BE
 
 - 协议文件：应该是直接引用了gensrc\build目录
-- 服务：benend_service.h/cpp::doris::BackendService::create_service
-- 入口类：benend_service.h/cpp::BackendService : public BackendServiceIf
+- 服务：backend_service.h/cpp::doris::BackendService::create_service
+- 入口类：backend_service.h/cpp::BackendService : public BackendServiceIf
 
 
 

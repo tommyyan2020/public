@@ -1,22 +1,10 @@
-# protobuf的使用
 
-## protobuf环境安装
 
-- 编译安装的时间长
+# ProtoBuff使用
 
-```bash
-wget https://github.com/protocolbuffers/protobuf/releases/download/v3.20.1/protobuf-all-3.20.1.tar.gz
-tar -zxvf protobuf-all-3.20.1.tar.gz
-./configure --prefix=/usr/local
-make
-make check
-make install
-# 测试protobuf是否安装正常
-protoc --version
-```
+# 参考
 
-## 基本用法
-
+- 官方（中国）：https://developers.google.cn/protocol-buffers
 - github：https://github.com/protocolbuffers/protobuf/
 - 官方链接：https://developers.google.com/protocol-buffers/docs/overview
 - CSDN翻译文档：https://so.csdn.net/so/search?q=ProtoBuf&t=blog&u=chuifuhuo6864
@@ -29,6 +17,29 @@ protoc --version
 - python入门：https://mp.weixin.qq.com/s/QbLq5gVKjaHyoaY2Vv5MRQ
 - c++ linux入门：https://zhuanlan.zhihu.com/p/451390348
 - Protobuf3语法详解：https://blog.csdn.net/qq_36373500/article/details/86551886
+
+# 下载安装
+
+- 官方
+
+```bash
+wget https://github.com/protocolbuffers/protobuf/releases/download/v3.20.1/protobuf-all-3.20.1.tar.gz
+tar -zxvf protobuf-all-3.20.1.tar.gz
+cd protobuf-3.20.1
+./configure --prefix=/usr/local/
+make
+make check
+make install
+protoc --version
+```
+
+# 版本
+
+proto3和proto2的区别
+
+-  https://solicomo.com/network-dev/protobuf-proto3-vs-proto2.html
+
+# 例子
 
 ## case1 
 
@@ -131,7 +142,7 @@ g++ addressbook*.cc list_people.cc -g -L../ -lprotobuf -o list_people
 
 ### addressbook.proto
 
-```proto
+```protobuf
 // See README.txt for information and build instructions.
 //
 // Note: START and END tags are used in comments to define sections used in
@@ -389,4 +400,3 @@ int main(int argc, char* argv[]) {
 
 - Varint https://blog.csdn.net/zgaoq/article/details/103182952
 - varint压缩算法详解  https://blog.csdn.net/weixin_43708622/article/details/111397322
-
