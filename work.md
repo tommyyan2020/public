@@ -2,6 +2,19 @@
 
 # 2022年6月
 
+## 21日
+
+### -lpthread 和 -pthread
+
+- 一句话：  -pthread 会附加一个宏定义 -D_REENTRANT，该宏会导致 libc 头文件选择那些thread-safe的实现 ，所以不管用哪个，最好加上这个宏，优先使用-pthread ，虽然有点恶心，坏了链接库-l的规矩
+
+- https://blog.csdn.net/jakejohn/article/details/79825086
+- http://blog.chinaunix.net/uid-69906223-id-5817313.html
+
+### protobuf cpp代码生成
+
+- 研究了一把如何通过makefile和cmake生成，还有不少的说法，更新到了[protobuf使用](/language/util/protobuf.md)
+
 ## 17日
 
 ### brpc
