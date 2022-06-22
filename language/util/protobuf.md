@@ -17,6 +17,8 @@
 - python入门：https://mp.weixin.qq.com/s/QbLq5gVKjaHyoaY2Vv5MRQ
 - c++ linux入门：https://zhuanlan.zhihu.com/p/451390348
 - Protobuf3语法详解：https://blog.csdn.net/qq_36373500/article/details/86551886
+- protobuf简介：https://sunzhy.blog.csdn.net/article/details/105078580 
+- 图文分析：如何利用Google的protobuf，来思考、设计、实现自己的RPC框架 ： https://www.sohu.com/a/463259739_115128
 
 # 下载安装
 
@@ -38,6 +40,268 @@ protoc --version
 proto3和proto2的区别
 
 -  https://solicomo.com/network-dev/protobuf-proto3-vs-proto2.html
+
+# 生成cpp文件
+
+## Makefile
+
+### 例子1：统一存放proto并生成
+
+```makefile
+BUILD_DIR = ${CURDIR}/../build/
+
+PROTOC = ${DORIS_THIRDPARTY}/installed/bin/protoc
+
+SOURCES = $(shell find ${CURDIR} -name "*.proto")
+OBJECTS = $(patsubst ${CURDIR}/%.proto, ${BUILD_DIR}/gen_cpp/%.pb.cc, ${SOURCES})
+HEADERS = $(patsubst ${CURDIR}/%.proto, ${BUILD_DIR}/gen_cpp/%.pb.h, ${SOURCES})
+
+#JAVA_OBJECTS = $(patsubst ${CURDIR}/%.proto, ${BUILD_DIR}/java/org/apache/doris/proto/%.java, ${SOURCES})
+
+#all: ${JAVA_OBJECTS} ${OBJECTS} ${HEADERS}
+all: ${OBJECTS} ${HEADERS}
+.PHONY: all
+
+${BUILD_DIR}/gen_cpp/%.pb.h ${BUILD_DIR}/gen_cpp/%.pb.cc: ${CURDIR}/%.proto | ${BUILD_DIR}/gen_cpp
+	${PROTOC} --proto_path=${CURDIR} --cpp_out=${BUILD_DIR}/gen_cpp $<
+
+#${BUILD_DIR}/java/org/apache/doris/proto/%.java: ${CURDIR}/%.proto | ${BUILD_DIR}/java
+#	${PROTOC} --proto_path=${CURDIR} --java_out=${BUILD_DIR}/java/ $<
+
+${BUILD_DIR}/gen_cpp:
+	mkdir -p $@
+```
+
+### 例子2：项目单独组织
+
+```makefile
+NEED_GPERFTOOLS=0
+BRPC_PATH=../..
+include $(BRPC_PATH)/config.mk
+# Notes on the flags:
+# 1. Added -fno-omit-frame-pointer: perf/tcmalloc-profiler use frame pointers by default
+# 2. Added -D__const__= : Avoid over-optimizations of TLS variables by GCC>=4.8
+CXXFLAGS+=$(CPPFLAGS) -std=c++0x -DNDEBUG -O2 -D__const__= -pipe -W -Wall -Wno-unused-parameter -fPIC -fno-omit-frame-pointer
+ifeq ($(NEED_GPERFTOOLS), 1)
+	CXXFLAGS+=-DBRPC_ENABLE_CPU_PROFILER
+endif
+HDRS+=$(BRPC_PATH)/output/include
+LIBS+=$(BRPC_PATH)/output/lib
+
+HDRPATHS=$(addprefix -I, $(HDRS))
+LIBPATHS=$(addprefix -L, $(LIBS))
+COMMA=,
+SOPATHS=$(addprefix -Wl$(COMMA)-rpath$(COMMA), $(LIBS))
+
+CLIENT_SOURCES = client.cpp
+SERVER_SOURCES = server.cpp
+PROTOS = $(wildcard *.proto)
+
+PROTO_OBJS = $(PROTOS:.proto=.pb.o)
+PROTO_GENS = $(PROTOS:.proto=.pb.h) $(PROTOS:.proto=.pb.cc)
+CLIENT_OBJS = $(addsuffix .o, $(basename $(CLIENT_SOURCES))) 
+SERVER_OBJS = $(addsuffix .o, $(basename $(SERVER_SOURCES))) 
+
+ifeq ($(SYSTEM),Darwin)
+ ifneq ("$(LINK_SO)", "")
+	STATIC_LINKINGS += -lbrpc
+ else
+	# *.a must be explicitly specified in clang
+	STATIC_LINKINGS += $(BRPC_PATH)/output/lib/libbrpc.a
+ endif
+	LINK_OPTIONS_SO = $^ $(STATIC_LINKINGS) $(DYNAMIC_LINKINGS)
+	LINK_OPTIONS = $^ $(STATIC_LINKINGS) $(DYNAMIC_LINKINGS)
+else ifeq ($(SYSTEM),Linux)
+	STATIC_LINKINGS += -lbrpc
+	LINK_OPTIONS_SO = -Xlinker "-(" $^ -Xlinker "-)" $(STATIC_LINKINGS) $(DYNAMIC_LINKINGS)
+	LINK_OPTIONS = -Xlinker "-(" $^ -Wl,-Bstatic $(STATIC_LINKINGS) -Wl,-Bdynamic -Xlinker "-)" $(DYNAMIC_LINKINGS)
+endif
+
+.PHONY:all
+all: echo_client echo_server
+
+.PHONY:clean
+clean:
+	@echo "> Cleaning"
+	rm -rf echo_client echo_server $(PROTO_GENS) $(PROTO_OBJS) $(CLIENT_OBJS) $(SERVER_OBJS)
+
+echo_client:$(PROTO_OBJS) $(CLIENT_OBJS)
+	@echo "> Linking $@"
+ifneq ("$(LINK_SO)", "")
+	$(CXX) $(LIBPATHS) $(SOPATHS) $(LINK_OPTIONS_SO) -o $@
+else
+	$(CXX) $(LIBPATHS) $(LINK_OPTIONS) -o $@
+endif
+
+echo_server:$(PROTO_OBJS) $(SERVER_OBJS)
+	@echo "> Linking $@"
+ifneq ("$(LINK_SO)", "")
+	$(CXX) $(LIBPATHS) $(SOPATHS) $(LINK_OPTIONS_SO) -o $@
+else
+	$(CXX) $(LIBPATHS) $(LINK_OPTIONS) -o $@
+endif
+
+%.pb.cc %.pb.h:%.proto
+	@echo "> Generating $@"
+	$(PROTOC) --cpp_out=. --proto_path=. $(PROTOC_EXTRA_ARGS) $<
+
+%.o:%.cpp
+	@echo "> Compiling $@"
+	$(CXX) -c $(HDRPATHS) $(CXXFLAGS) $< -o $@
+
+%.o:%.cc
+	@echo "> Compiling $@"
+	$(CXX) -c $(HDRPATHS) $(CXXFLAGS) $< -o $@
+
+```
+
+## CMake
+
+- 这个里面讲的比较全，三种方法：https://blog.csdn.net/qq_37868450/article/details/113727764
+
+### 例子1：多个项目多proto
+
+- 使用execute_process命令调用protoc生成源码
+
+最好也放一起，因为
+
+- 参考：https://www.jb51.net/article/207588.htm
+
+```cmake
+file(GLOB protobuf_files
+    mediapipe/framework/*.proto
+    mediapipe/framework/tool/*.proto
+    mediapipe/framework/deps/*.proto
+    mediapipe/framework/testdata/*.proto
+    mediapipe/framework/formats/*.proto
+    mediapipe/framework/formats/annotation/*.proto
+    mediapipe/framework/formats/motion/*.proto
+    mediapipe/framework/formats/object_detection/*.proto
+    mediapipe/framework/stream_handler/*.proto
+    mediapipe/util/*.proto
+    mediapipe/calculators/internal/*.proto
+    )
+
+FOREACH(FIL ${protobuf_files})
+ 
+  GET_FILENAME_COMPONENT(FIL_WE ${FIL} NAME_WE)
+ 
+  string(REGEX REPLACE ".+/(.+)\\..*" "\\1" FILE_NAME ${FIL})
+  string(REGEX REPLACE "(.+)\\${FILE_NAME}.*" "\\1" FILE_PATH ${FIL})
+ 
+  string(REGEX MATCH "(/mediapipe/framework.*|/mediapipe/util.*|/mediapipe/calculators/internal/)" OUT_PATH ${FILE_PATH})
+ 
+  set(PROTO_SRCS "${CMAKE_CURRENT_BINARY_DIR}${OUT_PATH}${FIL_WE}.pb.cc")
+  set(PROTO_HDRS "${CMAKE_CURRENT_BINARY_DIR}${OUT_PATH}${FIL_WE}.pb.h")
+ 
+  EXECUTE_PROCESS(
+      COMMAND ${PROTOBUF_PROTOC_EXECUTABLE} ${PROTO_FLAGS} --cpp_out=${PROTO_META_BASE_DIR} ${FIL}
+  )
+  message("Copying " ${PROTO_SRCS} " to " ${FILE_PATH})
+ 
+  file(COPY ${PROTO_SRCS} DESTINATION ${FILE_PATH})
+  file(COPY ${PROTO_HDRS} DESTINATION ${FILE_PATH})
+ 
+ENDFOREACH()
+```
+
+```cmake
+find_package(Protobuf 3 REQUIRED)
+
+#设置输出路径
+(MESSAGE_DIR ${CMAKE_BINARY_DIR}/message)
+if(EXISTS "${CMAKE_BINARY_DIR}/message" AND IS_DIRECTORY "${CMAKE_BINARY_DIR}/message")
+        SET(DST_DIR ${MESSAGE_DIR})
+else()
+        file(MAKE_DIRECTORY ${MESSAGE_DIR})
+        SET(DST_DIR ${MESSAGE_DIR})
+endif()
+
+#设置protoc的搜索路径
+LIST(APPEND PROTO_FLAGS -I${CMAKE_SOURCE_DIR}/msg/message)
+
+#获取需要编译的proto文件
+file(GLOB_RECURSE MSG_PROTOS ${CMAKE_SOURCE_DIR}/msg/message/*.proto)
+set(MESSAGE_SRC "")
+set(MESSAGE_HDRS "")
+foreach(msg ${MSG_PROTOS})
+        get_filename_component(FIL_WE ${msg} NAME_WE)
+
+        list(APPEND MESSAGE_SRC "${PROJECT_BINARY_DIR}/message/${FIL_WE}.pb.cc")
+        list(APPEND MESSAGE_HDRS "${PROJECT_BINARY_DIR}/message/${FIL_WE}.pb.h")
+        
+        # 生成源码
+        execute_process(
+            COMMAND ${PROTOBUF_PROTOC_EXECUTABLE} ${PROTO_FLAGS} --cpp_out=${DST_DIR} ${msg}
+            )
+endforeach()
+set_source_files_properties(${MESSAGE_SRC} ${MESSAGE_HDRS} PROPERTIES GENERATED TRUE)
+
+```
+
+
+
+### 例子2：单独项目，protobuf_generate_cpp生成
+
+```cmake
+include(FindProtobuf)
+protobuf_generate_cpp(PROTO_SRC PROTO_HEADER echo.proto)
+```
+
+### 例子3：方案1改为使用add_custom_target与add_custom_command生成源码
+
+```cmake
+find_package(Protobuf 3 REQUIRED)
+
+#设置输出路径
+SET(MESSAGE_DIR ${CMAKE_BINARY_DIR}/message)
+if(EXISTS "${CMAKE_BINARY_DIR}/message" AND IS_DIRECTORY "${CMAKE_BINARY_DIR}/message")
+        SET(PROTO_META_BASE_DIR ${MESSAGE_DIR})
+else()
+        file(MAKE_DIRECTORY ${MESSAGE_DIR})
+        SET(PROTO_META_BASE_DIR ${MESSAGE_DIR})
+endif()
+
+#设置protoc的搜索路径
+LIST(APPEND PROTO_FLAGS -I${CMAKE_SOURCE_DIR}/msg/message)
+#获取需要编译的proto文件
+file(GLOB_RECURSE MSG_PROTOS ${CMAKE_SOURCE_DIR}/msg/message/*.proto)
+set(MESSAGE_SRC "")
+set(MESSAGE_HDRS "")
+
+foreach(msg ${MSG_PROTOS})
+        get_filename_component(FIL_WE ${msg} NAME_WE)
+
+        list(APPEND MESSAGE_SRC "${PROJECT_BINARY_DIR}/message/${FIL_WE}.pb.cc")
+        list(APPEND MESSAGE_HDRS "${PROJECT_BINARY_DIR}/message/${FIL_WE}.pb.h")
+
+		# 使用自定义命令
+        add_custom_command(
+          OUTPUT "${PROJECT_BINARY_DIR}/message/${FIL_WE}.pb.cc"
+                 "${PROJECT_BINARY_DIR}/message/${FIL_WE}.pb.h"
+          COMMAND  ${PROTOBUF_PROTOC_EXECUTABLE}
+          ARGS --cpp_out  ${PROTO_META_BASE_DIR}
+            -I ${CMAKE_SOURCE_DIR}/msg/message
+            ${msg}
+          DEPENDS ${msg}
+          COMMENT "Running C++ protocol buffer compiler on ${msg}"
+          VERBATIM
+        )
+endforeach()
+
+# 设置文件属性为 GENERATED
+set_source_files_properties(${MESSAGE_SRC} ${MESSAGE_HDRS} PROPERTIES GENERATED TRUE)
+
+# 添加自定义target
+add_custom_target(generate_message ALL
+                DEPENDS ${MESSAGE_SRC} ${MESSAGE_HDRS}
+                COMMENT "generate message target"
+                VERBATIM
+                )
+```
+
+- 设置生成的源码文件属性GENERATED为TRUE,否则cmake时会因找不到源码而报错
+- 使用**add_custom_target**添加目标时要设置ALL关键字,否则target将不在默认编译列表中
 
 # 例子
 

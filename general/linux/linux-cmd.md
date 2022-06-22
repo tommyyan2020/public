@@ -1,57 +1,10 @@
-# 系统
-
-## 文件
-
-### 文件个数统计
-
--  当前目录下每个子目录的文件数量 
-
-```bash
-find . -maxdepth 1 -type d | while read dir; do count=$(find "$dir" -type f | wc -l); echo "$dir : $count"; done
-```
 
 
+# 调试
 
-- 文件个数
+## 参考
 
-  - 包括子文件夹里的 
-
-  ```bash
-  ls -lR|grep "^-"|wc -l
-  ```
-
-  - 不包含子文件夹
-
-  ```bash
-  ls -l |grep "^-"|wc -l
-  ```
-
-  - 某个特定文件的
-
-  ```bash
-  find . -name filename | wc -l
-  find -name "*.js" | wc -l
-  ```
-
-  
-
--  目录个数
-
-  - 包括子文件夹里的 
-
-  ```bash
-  ls -lR|grep "^d"|wc -l
-  ```
-
-  
-
-  - 包括子文件夹里的 
-
-  ```bash
-  ls -l |grep "^d"|wc -l
-  ```
-
-  
+- gdb调试详解 https://blog.csdn.net/daaikuaichuan/article/details/89791255?spm=1001.2014.3001.5502
 
 ## core文件
 
@@ -142,7 +95,60 @@ lz4 -d filename.lz4
 
 
 
+# 系统
 
+## 文件
+
+### 文件个数统计
+
+-  当前目录下每个子目录的文件数量 
+
+```bash
+find . -maxdepth 1 -type d | while read dir; do count=$(find "$dir" -type f | wc -l); echo "$dir : $count"; done
+```
+
+
+
+- 文件个数
+
+  - 包括子文件夹里的 
+
+  ```bash
+  ls -lR|grep "^-"|wc -l
+  ```
+
+  - 不包含子文件夹
+
+  ```bash
+  ls -l |grep "^-"|wc -l
+  ```
+
+  - 某个特定文件的
+
+  ```bash
+  find . -name filename | wc -l
+  find -name "*.js" | wc -l
+  ```
+
+  
+
+-  目录个数
+
+  - 包括子文件夹里的 
+
+  ```bash
+  ls -lR|grep "^d"|wc -l
+  ```
+
+  
+
+  - 包括子文件夹里的 
+
+  ```bash
+  ls -l |grep "^d"|wc -l
+  ```
+
+  
 
 ## 目录
 

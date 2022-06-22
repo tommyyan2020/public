@@ -58,23 +58,34 @@
 
 - 阿里java优化工具Arthas：https://arthas.aliyun.com/doc/
 
+## C++
+
 
 
 # 3 通用技术
 
 ## 测试工具
 
-### C++
-
-- google benchmark https://www.cnblogs.com/apocelipes/p/14929728.html
-- gtest：https://blog.csdn.net/yyz_1987/article/details/124101531
-
-## RPC
-
-### 调试工具
+### RPC
 
 - 【go-zero】gRpc debug调试工具 BloomRpc 与 Grpc UI 帮助微服务 rpc 开发便捷调试 https://blog.csdn.net/wanglei19891210/article/details/124624428
 - postman调试rpc接口:https://blog.csdn.net/yzpbright/article/details/118597376
+
+## 开发工具
+
+### google开发套件
+
+-  [protobuf的使用](/language/util/protobuf.md)
+- [benchmark](/language/util/google-benchmark.md)
+- [gtest](/language/util/google-test.md)
+- [gflag](/language/util/gflag.md)
+
+## RPC
+
+### thrift
+
+- 官网：https://thrift.apache.org/
+- 
 
 ## Linux
 
@@ -90,29 +101,7 @@
 
 ## 未分类
 
-### thrift
-
-- 官网：https://thrift.apache.org/
-- 
-
-### protobuf
-
-#### 站点
-
-- github：https://github.com/protocolbuffers/protobuf/
-
-#### 教程
-
-- 官方链接：https://developers.google.com/protocol-buffers/docs/overview
-- CSDN翻译文档：https://so.csdn.net/so/search?q=ProtoBuf&t=blog&u=chuifuhuo6864
-- 官方文档：api参考：http://code.google.com/apis/protocolbuffers/docs/reference/overview.html
-- 官方文档：报文格式编码：http://code.google.com/apis/protocolbuffers/docs/encoding.html
-- 官方文档：CPP： https://developers.google.com/protocol-buffers/docs/cpptutorial 
-- 官方文档proto3：https://developers.google.com/protocol-buffers/docs/proto3
-- 简单参考这个：https://www.cnblogs.com/silvermagic/p/9087539.html
-- 官方python文档： https://developers.google.com/protocol-buffers/docs/reference/python-generated 
-- python入门：https://mp.weixin.qq.com/s/QbLq5gVKjaHyoaY2Vv5MRQ
-- c++ linux入门：https://zhuanlan.zhihu.com/p/451390348
+### 
 
 
 
