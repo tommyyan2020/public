@@ -7,6 +7,7 @@
 - 视频：https://www.bilibili.com/video/BV1fy4y1b7TC?p=16
 - 教程：https://blog.csdn.net/fddnihao/article/details/117328165
 - 教程：https://blog.csdn.net/fddnihao/article/details/117370344
+- 教程：https://www.csslayer.info/wordpress/cmake/cmake-find-package/ https://github.com/fcitx/fcitx5/blob/master/cmake/FindLibIntl.cmake
 
 ## 基本语法
 

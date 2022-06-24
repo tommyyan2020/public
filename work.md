@@ -2,14 +2,37 @@
 
 # 2022年6月
 
+## 24日
+
+### lh_mouse case学习
+
+- 分支裁剪
+- 变参模板实现快排
+- 看了一部分编译原理的部分，暂时不看了，最近对撸码有点兴趣，原理看的有点腻味了
+
+
+
+## 23日
+
+### 科学上网
+
+- 折腾了一上午，总算整明白了，管控严了，内网和wifi不可兼得，网络稳定多了
+
+### lh_mouse case学习
+
+- 已更新到[lh_mouse c++ 教程学习](/language/cpp/lh_mouse.md)
+- 使用c++11变参模板实现编译期的归并排序
+
+
+
 ## 21日
 
 ### -lpthread 和 -pthread
 
 - 一句话：  -pthread 会附加一个宏定义 -D_REENTRANT，该宏会导致 libc 头文件选择那些thread-safe的实现 ，所以不管用哪个，最好加上这个宏，优先使用-pthread ，虽然有点恶心，坏了链接库-l的规矩
-
 - https://blog.csdn.net/jakejohn/article/details/79825086
 - http://blog.chinaunix.net/uid-69906223-id-5817313.html
+- 再来一个cmake下怎么用的：https://blog.csdn.net/jinking01/article/details/115217926
 
 ### protobuf cpp代码生成
 
