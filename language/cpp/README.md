@@ -115,5 +115,7 @@ gcc -DHAVE_CONFIG_H，定义宏HAVE_CONFIG_H
 
 
 
+## 未分类
 
+- closure（闭包）、仿函数、std::function、bind、lambda  https://blog.csdn.net/daaikuaichuan/article/details/78229315
 
