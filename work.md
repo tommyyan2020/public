@@ -2,6 +2,24 @@
 
 # 2022年6月
 
+## 27日
+
+### apche doris冷热数据存储
+
+- （一）https://mp.weixin.qq.com/s/z0Cq7C3smb1VsN8N1fDSqQ
+  -  最重要的原因，就是纯粹的存算分离有着巨大的缺陷：其牺牲了查询效率，并且在数据修改时非常麻烦，这对于一个追求查询效率的数据仓库来说是难以接受的，早期的impala推广不起来，这是很重要的一个因素 ， 存算分离绝对不是只实现一个读写HDFS文件的接口那么简单，需要投入更多的关注在数据管理策略上 
+  - 旧方案（本地存储）：本地ssd->hdd cold down，
+    - 优点：查询性能消耗小，处理逻辑简单
+    - 坏处：没有彻底的存算分离，非存算分离方案的问题还存在，只是hdd的成本略低
+  - 存算分离方案：
+    - 创建一个冷数据副本（hdfs、s3），成功后删除一个本地副本
+
+### 几个大数据Daas产品
+
+- tapdata， https://tapdata.net/
+- fivetran：https://zhuanlan.zhihu.com/p/450543543 https://github.com/fivetran https://www.fivetran.com/
+- 对标Fivetran， Tapdata 凭什么做到实时数据赛道No.1？ http://news.sohu.com/a/528711895_374240
+
 ## 24日
 
 ### lh_mouse case学习
