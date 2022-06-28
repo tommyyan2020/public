@@ -2,6 +2,50 @@
 
 # 2022年6月
 
+## 28日
+
+### starrocks公众号推文
+
+- 多集群管理工具：https://mp.weixin.qq.com/s/ABjMQZLsmOowMe1tuNqICQ https://in9aoxx754.feishu.cn/docs/doccnAUw7sF3wdul5Sx7fwinDbc#qXTdnU 
+
+### StarRocks SIG DLA kickoff 会议
+
+https://www.bilibili.com/video/BV1EB4y1D7my
+
+
+
+- 他们现阶段感觉迫切要解决这个里面说的问题，刚开源的组件一般生态建设起来就是这个小作坊的毛病特别多，无数多的重复代码和很难的可读性，造成大量代码来的时候代码质量不可控。。
+- 准备做catalog了（2.3版本开始），就是要做connector层的抽象
+-  与trino/presto对比，即使在数据湖分析的场景上，这些所作的优化（特别是复杂的查询场景）也是非常有效的 
+- connector层要抽象类似于linux vfs的read/wirte之类的api
+- 整体是读为主,iceberg上在支持明细模型的追加写
+- https://github.com/StarRocks/starrocks/issues/7268
+
+### StarRocks在37手游用户画像应用实践
+
+- https://www.bilibili.com/video/BV1ES4y1v7Eu
+
+![1656397081679](images/1656397081679.png)
+
+![1656397127000](images/1656397127000.png)
+
+![1656398229829](images/1656398229829.png)
+
+![1656398268097](images/1656398268097.png)
+
+
+
+### StarRocks on AWS 如何对历史数据和实时数据进行极速统一的分析
+
+- https://www.bilibili.com/video/BV1L34y1W7Ww
+- 
+
+![1656402338763](images/1656402338763.png)
+
+![1656402219808](images/1656402219808.png)
+
+![1656402419581](images/1656402419581.png)
+
 ## 27日
 
 ### apche doris冷热数据存储
