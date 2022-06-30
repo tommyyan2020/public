@@ -22,7 +22,7 @@
 
 - 视频：https://www.bilibili.com/video/av974786474
 - 参考：https://zhuanlan.zhihu.com/p/343231398
-- 总结：[gperftools](//language/util/gperftools.md)
+- 总结：[gperftools](/language/util/gperftools.md)
 - 
 
 

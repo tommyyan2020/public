@@ -12,7 +12,7 @@
     - [benchmark](/language/util/google-benchmark.md)
     - [gtest](/language/util/google-test.md)
     - [gflag](/language/util/gflag.md)
-    - [gperftools](//language/util/gperftools.md)
+    - [gperftools](/language/util/gperftools.md)
 
 
 - 16日：准备研究一下百度rpc，在这里[baidu rpc](/language/util/brpc.md)
