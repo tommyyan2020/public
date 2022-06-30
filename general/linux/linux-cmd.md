@@ -93,7 +93,16 @@ lz4 -d filename.lz4
 调试相关：b 断点，r 从头运行，c continue，n 单步，s step in
 ```
 
+## addr2line
 
+### 参考
+
+- https://blog.csdn.net/qq_39852676/article/details/122523274
+- http://wjhsh.net/zhchoutai-p-6717780.html
+
+-g选项要打开
+
+![1656569246665](images/1656569246665.png)
 
 # 系统
 

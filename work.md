@@ -2,7 +2,39 @@
 
 # 2022年6月
 
-## 29日
+## 30日
+
+### StarRocks V2.1 isues
+
+#### 2.1.10
+
+- 反复切换 Leader FE 节点可能会导致所有导入作业挂起，无法进行导入。[#7350](https://github.com/StarRocks/starrocks/issues/7350)  [a883805](https://github.com/StarRocks/starrocks/commit/a8838058b1ebf43f87074eafe8989d7889ed64f0) 
+  - 看了一下，是fe节点切换时，已经发生fe切换的fe（master变非master），已经进行中的master角色的任务（transaction等）该如何处理，目前有可能存在问题，修复策略是增加判断，执行失败
+- 使用 `DESC` 查看表结构时，类型为 DECIMAL(18,2) 的字段会展示为 DECIMAL64(18,2) 类型。[#7309](https://github.com/StarRocks/starrocks/pull/7309) ，代码： [`f994ec0`](https://github.com/StarRocks/starrocks/commit/f994ec05a613a8cf26b21e3e4c43fa81800578cf)
+  - 新增了一个 canonicalName 替代原来的 toString ，不知道为啥不直接改
+- 导入的数据有倾斜时，某些列占用内存比较大，可能会导致 MemTable 的内存估算超过 4GB，从而导致 BE 停止工作。[#7161](https://github.com/StarRocks/starrocks/issues/7161)
+
+### addr2line
+
+测试了一下这个工具，结合dmesg还蛮好用的
+
+### gperftools
+
+- 视频：https://www.bilibili.com/video/av974786474
+- 参考：https://zhuanlan.zhihu.com/p/343231398
+- 总结：[gperftools](//language/util/gperftools.md)
+- 
+
+
+
+参考
+
+- https://blog.csdn.net/fengbingchun/article/details/119980076
+- https://blog.csdn.net/qq_39852676/article/details/122523274
+
+![1656568708382](images/1656568708382.png)
+
+
 
 ### 公司机器上弄虚拟机
 
@@ -14,7 +46,10 @@
 - 将test目录整到了工蜂上，
 - 一些git相关知识的学习和整理，更新到了[git相关知识](/general/git.md)
 
+### TapData产品发布会
 
+- 对标产品fivetran：https://www.bilibili.com/video/BV1BM4y157dj
+- 
 
 
 

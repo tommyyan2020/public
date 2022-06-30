@@ -1,4 +1,4 @@
-# chgit相关
+# git相关
 
 
 
@@ -188,6 +188,10 @@ git rm $(git ls-files --deleted):删除所有被跟踪，但是在工作目录�
 
 ### 仓库/远程操作
 
+仓库配置可以在 .git/config 看到
+
+upstream相关参考：https://www.csdn.net/tags/Mtzacg1sMDUwMy1ibG9n.html
+
 ```bash
 git init ~/git-server --bare  //初始化一个本地的远程服务器
 # 或者
@@ -198,13 +202,19 @@ git push //将本地历史推送到远程
 
 git remote add  origin ~/git-server //添加一个远程仓库的别名
 git remote -v //查看远程仓库信息
+
  git branch --set-upstream-to=origin_ssh/master # 设置默认的仓库和分支
+ #或者
+ git branch -u origin/dev
+
  
 git fetch 
 git pull // git pull = git fetch + git merge
 
 git clone //克隆一个远程仓库作为本地仓库
 ```
+
+
 
 ### 用户
 

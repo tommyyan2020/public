@@ -14,6 +14,9 @@
 | protobuf    | 3.20.1      | /usr/local                                                   |        |                                                  |                                                              |
 | thrift      | 0.16.0      | /usr/local/bin                                               |        |                                                  |                                                              |
 | cmake       | 3.20        |                                                              |        |                                                  |                                                              |
+| gperftools  | 2.10        |                                                              |        |                                                  |                                                              |
+| gtest       | 1.11.0      |                                                              |        |                                                  |                                                              |
+|             |             |                                                              |        |                                                  |                                                              |
 
 ## 2 windows环境
 
