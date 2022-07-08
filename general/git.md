@@ -5,6 +5,7 @@
 # 常用操作
 
 - 参考：https://blog.csdn.net/weixin_67585820/article/details/123554416
+- 详解git fetch与git pull的区别 https://blog.csdn.net/riddle1981/article/details/74938111
 
 ## 新项目
 
@@ -57,6 +58,8 @@ git checkout - //恢复到上一个分支
 git reset --mixed <commit> //(默认)
 git reset --soft<commit> 
 git reset --hard <commit> 
+
+git reset --hard origin/master 
 
 git reflog
 ```
@@ -304,6 +307,7 @@ git pull
 - github--pr 详细步骤 https://blog.csdn.net/qianfengkui/article/details/110820779
 - github提交pr https://blog.csdn.net/gentleman_hua/article/details/123816150
 - Github 使用经典问题：如何同步 fork 项目原仓库的更新 https://zhuanlan.zhihu.com/p/291845721
+- github 默认的主分支从master 变成了main  https://blog.csdn.net/sanqima/article/details/122201855
 
 ## 免密登录
 
@@ -370,6 +374,16 @@ git clone https://github.com/tommyyan2020/incubator-doris.git --recursive
 
 
 ![1652765808818](images/1652765808818.png)
+
+## 例子
+
+### tdengine
+
+- B站教程：https://www.bilibili.com/video/BV1Bq4y1p7Qr
+
+![1657016516240](images/1657016516240.png)
+
+![1657018013203](images/1657018013203.png)
 
 # 腾讯工蜂
 

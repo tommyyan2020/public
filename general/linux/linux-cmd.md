@@ -161,10 +161,6 @@ find . -maxdepth 1 -type d | while read dir; do count=$(find "$dir" -type f | wc
 
 ## 目录
 
-#### 
-
-
-
 ### tree
 
 ```bash
@@ -172,23 +168,72 @@ find . -maxdepth 1 -type d | while read dir; do count=$(find "$dir" -type f | wc
 tree -d -L 3
 ```
 
-
-
-## 日期时间
-
-- timestamp转日期时间
-
-```bash
-date -d@1647918518
-```
-
-
-
 查看目录下文件大小
 
 ```bash
 du -sh .[!.]*
 ```
+
+
+
+## 日期时间
+
+### 基础知识
+
+- 时区知识：如何在TDengine上设置timezone https://www.bilibili.com/video/BV1p64y187yk
+- rfc 3339时间
+
+![1657099808678](images/1657099808678.png)
+
+### 转换
+
+- timestamp转日期时间
+
+```bash
+date -d@1647918518
+
+#linux时区采用posix标准，与iso 8601相反
+# 北京时间
+TZ='UTC-8' date +'%Y-%m-%d %H:%M:%S %Z %z'
+
+# utc时间
+TZ='UTC' date +'%Y-%m-%d %H:%M:%S %Z %z'
+
+
+TZ='UTC+8' date +'%Y-%m-%d %H:%M:%S %Z %z'
+
+```
+
+![1657099437025](images/1657099437025.png)
+
+### 时区
+
+- 参考：https://www.php.cn/linux-489834.html
+
+```bash
+date 
+timedatectl
+#设置时区
+timedatectl set-timezone "Asia/Shanghai"
+```
+
+![1657100454802](images/1657100454802.png)
+
+### 时间同步
+
+参考：https://cloud.tencent.com/document/product/213/53629
+
+centos8采用了chronyd，以前的ntpdate没用了
+
+```bash
+ dnf install chrony -y
+ systemctl status chronyd
+
+```
+
+
+
+
 
 ## 服务
 

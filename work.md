@@ -1,5 +1,78 @@
 # 流水账
 
+# 2022年7月
+
+## 8日
+
+### doris
+
+- Apache Doris 技术实现 - 冷热数据存储(二)https://mp.weixin.qq.com/s/rpZv6wOmiXB4vM8zlN2-iQ
+
+
+
+
+
+## 7日
+
+### 系统软件tech day
+
+- Redis 集群模式的应用实践 https://www.bilibili.com/video/BV1qL4y1Y7uy
+- Apache Pegasus：高性能强一致分布式KV存储系统 https://www.bilibili.com/video/BV1SP4y1p7cW
+
+## 6日
+
+### Tdengin B站
+
+- 继续，基本看出来了，一些做嵌入式系统、物联网背景的人根据opentsdb的样子用c语言参考redis撸了一套
+- TDengine如何高效计算千万级数据的百分位数？ https://www.bilibili.com/video/BV16h411n7Mg
+- 吧这个微课堂系列看完了吧：https://space.bilibili.com/483972976/channel/seriesdetail?sid=878539
+
+
+
+## 5日
+
+### Tdengin B站
+
+-  把昨天没看完的两个看完了
+- 70后互联网老兵经验分享：成为开源软件贡献者并不难  https://www.bilibili.com/video/BV1Bq4y1p7Qr
+- 后面要逐步把这排名靠前的都看看
+
+![1657013822791](images/1657013822791.png)
+
+- TDengine的缓存功能是如何实现的:https://www.bilibili.com/video/BV1QL4y1h7NG
+
+## 4日
+
+### Tdengin B站
+
+- TDengine 3.0 的技术演进规划 https://www.bilibili.com/video/BV1SY411s7Vx
+- TDengine 技术内幕分享——兼容 OpenTSDB https://www.bilibili.com/video/BV1Qg411A7kP
+- 全面超越OpenTSDB——TDengine的迁移方案和更多时序查询支持能力介绍  https://www.bilibili.com/video/BV1r44y1h7gc
+
+
+
+## 1日
+
+### 了解tdengine
+
+- 参加了一个tdengine3.0的交流
+- 关注一下tdengine的实现细节
+
+### docker + VSCode
+
+- b站的一个分享，这个哥们没有讲要装docker，在这里[docker下载](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+- vscode里面安装remote container插件
+- 好大一个坑，vscode 依赖 remote container 又依赖docker desktop 又 依赖 wsl，各种骚操作以后又要上 windows 商店选linux镜像，目测连centos都没有，最后下了一个ubuntu，总算折腾成功了，发现自己的virtualbox不能用了，据说是因为骚包的hyper-v不允许其他虚拟机启动，严重不推荐这种方案
+  - https://blog.csdn.net/jf_52001760/article/details/124209728
+- 还是推荐大家用virtualbox + 虚拟机
+  - 简单，没有wsl这么麻烦，还不如直接用hyper-v，
+  - 扩充虚拟机很简单，快速搭建起集群
+  - 备份、复用、扩容都简单，copy文件去别的机器也可以用
+
+
+
+
+
 # 2022年6月
 
 ## 30日
@@ -33,6 +106,10 @@
 - https://blog.csdn.net/qq_39852676/article/details/122523274
 
 ![1656568708382](images/1656568708382.png)
+
+
+
+## 29日
 
 
 
@@ -1264,251 +1341,3 @@ centos 8开始不支持ntp，需要用chrony了，顺便看了一下
 
 
 
-# 2021年12月
-
-## 31日
-
-#### 1 效率提升
-
-​	为了更高提高学习、工作的效果，强化以重点目标的持续进展，调整“进行中”模块为任务进展，具体变化为
-
-- 取消表现形式不好的表格方式，第一个模块为当前进行的任务不再分模块，只分优先级，增加完成的deadline、追求任务的达成率；
-- 后面分模块进行整体进度跟进，强化模块性的完成情况，及完成模块的任务关联的任务、相关调研、知识储备等
-
-2 Flink x JAVA
-
-- word count实现
-
-  - 找不到对应的类，在网上找到对应的处理：https://blog.csdn.net/walykyy/article/details/105910155
-
-    ![1640953266666](images/1640953266666.png)
-
-  ![1640953904062](images/1640953904062.png)
-
-- 总结：[Maven配置中Dependency域的scope选项](/general/language/maven_dependency_scope.md)
-
-- 总结：[Java程序执行&Flink程序执行](/bigdata/flink/flink_run)
-
-  
-  
-  
-
-3 其他
-
-- 莫名奇妙发现natcat不见了，竟然被这个东西黑了；今天被微软连续恶心了三遍，除了这个没什么卵用的杀毒软件以外、还有莫名奇妙删不掉的edge、还有一直关闭了还在偷偷更新的系统；
-
-![1640948346481](images/1640948346481.png)
-
-
-
-## 30日
-
-#### 1 flink：wordcount的例子
-
-- 参考例子：https://www.cnblogs.com/ALittleMoreLove/archive/2018/08/09/9449992.html
-
-```java
-import org.apache.flink.api.common.functions.FlatMapFunction;
-import org.apache.flink.api.java.utils.ParameterTool;
-import org.apache.flink.streaming.api.datastream.DataStream;
-import org.apache.flink.streaming.api.datastream.DataStreamSource;
-import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.api.windowing.time.Time;
-import org.apache.flink.util.Collector;
-
-
-public class WordCount {
-
-    public static void main(String[] args) throws Exception {
-        //定义socket的端口号
-        int port;
-        try{
-            ParameterTool parameterTool = ParameterTool.fromArgs(args);
-            port = parameterTool.getInt("port");
-        }catch (Exception e){
-            System.err.println("没有指定port参数，使用默认值9000");
-            port = 9000;
-        }
-
-        //获取运行环境
-        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-
-        //连接socket获取输入的数据
-        DataStreamSource<String> text = env.socketTextStream("10.192.12.106", port, "\n");
-
-        //计算数据
-        DataStream<WordWithCount> windowCount = text.flatMap(new FlatMapFunction<String, WordWithCount>() {
-            public void flatMap(String value, Collector<WordWithCount> out) throws Exception {
-                String[] splits = value.split("\\s");
-                for (String word:splits) {
-                    out.collect(new WordWithCount(word,1L));
-                }
-            }
-        })//打平操作，把每行的单词转为<word,count>类型的数据
-                .keyBy("word")//针对相同的word数据进行分组
-                .timeWindow(Time.seconds(2),Time.seconds(1))//指定计算数据的窗口大小和滑动窗口大小
-                .sum("count");
-               
-        //把数据打印到控制台
-        windowCount.print()
-                .setParallelism(1);//使用一个并行度
-        //注意：因为flink是懒加载的，所以必须调用execute方法，上面的代码才会执行
-        env.execute("streaming word count");
-
-    }
-
-    /**
-     * 主要为了存储单词以及单词出现的次数
-     */
-    public static class WordWithCount{
-        public String word;
-        public long count;
-        public WordWithCount(){}
-        public WordWithCount(String word, long count) {
-            this.word = word;
-            this.count = count;
-        }
-
-        @Override
-        public String toString() {
-            return "WordWithCount{" +
-                    "word='" + word + '\'' +
-                    ", count=" + count +
-                    '}';
-        }
-    }
-
-
-}
-```
-
-
-
-## 29日
-
-#### 1 docsify windows环境
-
-​	今天忙活了一天，折腾windows下的docsify用node启动，失败，原因：
-
-- node在windows 下是通过cmd启动的，无法像linux一样挂后台，有个cmd的框在那里，无法接受，尝试了start命令、脚本方式、vbs方式
-- 无法用winsw作为一个服务启动
-
-#### 2 文档总结
-
--  [markdown的一些心得](/general/markdown-note)
--  [windows下搭建web环境](/general/windows-env-install)
-
-其他一些事项
-
-## 28日
-
-#### 1 java环境搭建
-
-- 下载了最新的2021.3版本的idea，并通过javaagent方式破解，方法在这里：https://www.yuque.com/docs/share/88ecae8e-0e31-4ee7-b0d7-c3ef6bec82a6
-
-  ，可以激活idea、pycharm、webstorm，golang不行
-
-- 一开始不能进行flink 的archtype导入，需要 Invalidate Caches处理一下
-
-  ![1640784004723](images/1640784004723.png)
-
-- flink的例子需要指定package，这里弄
-
-  ![1640784073350](images/1640784073350.png)
-
-- 折腾半天flink相关代码无法关联的问题，需要重新弄仓库，先弄了一个阿里云的，后面再慢慢改吧，另外默认windows不可以建立点开头的目录，如“.m2”，需要在尾部多加一个点，如“.m2.”
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd" xmlns="http://maven.apache.org/SETTINGS/1.1.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <!-- 
-    <localRepository>D:\repo</localRepository>
-  -->
-  <mirrors>
-    <mirror>
-      <mirrorOf>*</mirrorOf>
-      <name>aliyunmaven</name>
-      <url>https://maven.aliyun.com/repository/public</url>
-      <id>aliyunmaven</id>
-    </mirror>
-  </mirrors>
-  <profiles>
-    <profile>
-      <repositories>
-        <repository>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-          <id>central</id>
-          <name>maven</name>
-          <url>https://maven.aliyun.com/repository/public</url>
-        </repository>
-        <repository>
-          <snapshots />
-          <id>snapshots</id>
-          <name>maven</name>
-          <url>https://maven.aliyun.com/repository/public</url>
-        </repository>
-      </repositories>
-      <pluginRepositories>
-        <pluginRepository>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-          <id>central</id>
-          <name>maven</name>
-          <url>https://maven.aliyun.com/repository/public</url>
-        </pluginRepository>
-        <pluginRepository>
-          <snapshots />
-          <id>snapshots</id>
-          <name>maven</name>
-          <url>https://maven.aliyun.com/repository/public</url>
-        </pluginRepository>
-      </pluginRepositories>
-      <id>artifactory</id>
-    </profile>
-  </profiles>
-  <activeProfiles>
-    <activeProfile>artifactory</activeProfile>
-  </activeProfiles>
-</settings>
-```
-
-2 用fllebrowser搭建文档共享环境 
-
-挺好用的一个工具，可以当百度云使用
-
-具体见：http://iotop.xyz/#/general/windows-env-install?id=_5-%e5%ae%89%e8%a3%85filebrowser
-
-
-
-# 2021年11月
-
-## 10日
-
-#### thrift
-
-总结一下，java版本用这个模型TThreadedSelectorServer，linux下如果是java版本需要开一下epoll
-
-doris 用的非阻塞(TNonblockingServer)/多线程(TThreadedServer)/线程池(TThreadPoolServer))三选一
-
-- 主流序列化协议优缺点 https://lux-sun.blog.csdn.net/article/details/117263212
-- Apache Thrift系列(一)：Thrift基本及IDL语法 https://www.cnblogs.com/-wenli/p/15088124.html
-- thrift简单示例 (基于C++) https://www.cnblogs.com/albizzia/p/10884320.html https://thrift.apache.org/tutorial/cpp.html
-- Thrift之TServer服务模型 https://www.jianshu.com/p/6844d69fea15
-- Apache Thrift系列详解(二) - 网络服务模型：https://juejin.cn/post/6844903622384287751#heading-28
-- JAVA使用EPoll来进行NIO处理的方法 https://www.cnblogs.com/AloneSword/p/3209553.html
-- c++版本的thrit好像用的这个，https://www.cnblogs.com/taoxinrui/p/5879876.html
-
-#### 其他
-
-- 认真分析mmap：是什么 为什么 怎么用 https://www.cnblogs.com/huxiao-tee/p/4660352.html
-- 浅析/dev/shm https://www.cnblogs.com/haoxiaoyu/p/c7f364de3598978b5ab293e8fb0e3cca.html
-- linux下的/dev/shm/ 以及与swap目录的区别 https://www.cnblogs.com/tinywan/p/10550356.html
--
-
-
-
-#  [2020年8月以前](work_old)
