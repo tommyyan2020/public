@@ -6,6 +6,7 @@
 
 ## 7月
 
+- 12日：[raft协议](/general/theory/raft.md)
 - 4日：[tdengine笔记](/bigdata/tdengine/tdengine-note.md)
 
 ## 6月

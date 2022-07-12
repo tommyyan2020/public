@@ -10,6 +10,22 @@ redis [redis cluster](https://redis.io/docs/manual/scaling/) 、 [codis](https:/
 
 公共技术
 
+## 嵌入式db
+
+### boltdb
+
+- boltdb：go语言实现，etcd使用的
+  - github https://github.com/boltdb/bolt
+  - Boltdb学习笔记 https://www.zhihu.com/column/c_1357043309848866816
+  - BoltDB学习笔记 https://blog.csdn.net/qq_41822345/article/details/124897274
+
+### sqlite
+
+- litestream
+  - 备份你的SQLite 数据库：SQLite 的独立流复制工具Litestream https://www.q578.com/s-5-2747021-0/
+  - github：https://github.com/benbjohnson/litestream
+  - 官网：https://litestream.io/
+
 
 
 https://landscape.cncf.io/

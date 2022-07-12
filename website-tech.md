@@ -34,14 +34,7 @@
 
 ## 学习
 
-### bilibili专栏视频
 
-### 专栏作家
-
-- 王知无：https://juejin.cn/user/3368559357991031
-- 过往记忆大数据：https://www.iteblog.com/
-- 某位大神的专栏：https://dirtysalt.github.io/html/，各种专业收藏
-- 
 
 ### 教程
 
@@ -105,6 +98,10 @@
 
 - 数据结构在线演示 https://www.cs.usfca.edu/~galles/visualization/about.html
 
+### 网络
+
+- 软件定义网络https://www.zhihu.com/column/software-defined-network
+
 ## 未分类
 
 ### 
@@ -145,12 +142,78 @@
 
 ## 工具
 
-- json在线解析：https://www.json.cn/
+- json在线解析：https://www.jsozhuanl
 - 
 
 
 
+# 5  个人/博客
+
+## 
+
+## 大数据
+
+- 王知无：https://juejin.cn/user/3368559357991031
+- 过往记忆大数据：https://www.iteblog.com/
+
+### tdengine
+
+- 李创：https://www.codedump.info/ https://github.com/lichuang
+
+### doris
+
+- 缪 https://emmymiao87.github.io/
+
+### pegasus
+
+- 何昱晨：
+
+### redis
+
+- 郑树新 https://blog.csdn.net/zsxxsz
+  - acl库：https://github.com/acl-dev/acl
+- 
+
+## 收藏
+
+- 某位大神的专栏：https://dirtysalt.github.io/html/，各种专业收藏
 
 
 
+## 未分类
+
+# 6 b站
+
+## 大数据
+
+### 组件官方
+
+- tdengine：https://space.bilibili.com/483972976/
+- clickhouse：https://space.bilibili.com/519906567/
+- starrocks：https://space.bilibili.com/1273141509/
+- doris：https://space.bilibili.com/362350065/
+
+## 基础组件
+
+- tars：https://space.bilibili.com/358991052/
+- 
+
+## 个人
+
+- _Colin_L： https://space.bilibili.com/389476201
+- 鬼谷良师：https://space.bilibili.com/400647031，各种国外名校经典课程
+- Go夜读： https://space.bilibili.com/326749661/channel/series
+
+
+
+## 培训机构
+
+# 7 课程
+
+## MIT
+
+- MIT6.824分布式系统 https://www.zhihu.com/column/c_1273718607160393728
+  - b站：https://www.bilibili.com/video/av752617030
+  - MIT 6.824 分布式系统笔记 https://www.zhihu.com/column/c_1496528561465303040
+- MIT6.S081 操作系统工程 https://www.zhihu.com/column/c_1294282919087964160
 

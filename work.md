@@ -1,6 +1,35 @@
 # 流水账
 
+# TODO
+
+## clickhouse 7.10 meetup :
+
+ https://space.bilibili.com/519906567/
+
+## TiDB
+
+## ARIES 
+
+https://www.codedump.info/post/20220514-weekly-15/
+
+
+
+##  数据存储与检索
+
+(详解b+树存储引擎(innodb、boltdb、buntdb等)、lsm树存储引擎(bitcask、moss、pebble、leveldb等)) 
+
+https://www.bilibili.com/video/BV1Zv411G7ty
+
 # 2022年7月
+
+## 12日
+
+## tdengine tech day
+
+- Rust 语言特性与应用 https://www.bilibili.com/video/BV1AU4y177aN
+- Raft算法简介
+  - 参考： https://www.bilibili.com/video/BV15Q4y1C7du 
+  - 总结：[raft协议](/general/theory/raft.md)
 
 ## 8日
 
