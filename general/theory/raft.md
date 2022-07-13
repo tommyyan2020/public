@@ -6,6 +6,9 @@
 - 算法原理的动画演示：https://thesecretlivesofdata.com/raft/
 - MIt6.824-Lab3基于Raft实现KV存储 https://zhuanlan.zhihu.com/p/524566276
 - Raft 论文研读： https://www.cnblogs.com/brianleelxt/p/13251540.html
+- Raft 协议实战系列 https://juejin.cn/user/1275089220539869
+- braft
+  - github：https://github.com/baidu/braft
 - etcd raft
   - etcd raft 源码阅读 https://www.bilibili.com/video/BV1Eb411B7RM
   - 代码：https://github.com/etcd-io/etcd/tree/main/raft wal 两个目录

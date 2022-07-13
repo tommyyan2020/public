@@ -176,7 +176,9 @@
 
 ## 收藏
 
-- 某位大神的专栏：https://dirtysalt.github.io/html/，各种专业收藏
+- 某位大神的专栏：
+  - https://dirtysalt.github.io/html/
+  - 各种专业收藏
 
 
 
@@ -200,9 +202,13 @@
 
 ## 个人
 
-- _Colin_L： https://space.bilibili.com/389476201
-- 鬼谷良师：https://space.bilibili.com/400647031，各种国外名校经典课程
-- Go夜读： https://space.bilibili.com/326749661/channel/series
+- _Colin_L：
+  -  https://space.bilibili.com/389476201
+- 鬼谷良师：
+  - https://space.bilibili.com/400647031    
+  - 各种国外名校经典课程
+- Go夜读：
+  -  https://space.bilibili.com/326749661/channel/series
 
 
 
