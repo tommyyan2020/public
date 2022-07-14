@@ -6,6 +6,7 @@
 
 ## 7月
 
+- 13日：[pulsar笔记](/bigdata/pulsar/pulsar-note.md)
 - 12日：[raft协议](/general/theory/raft.md)
 - 4日：[tdengine笔记](/bigdata/tdengine/tdengine-note.md)
 

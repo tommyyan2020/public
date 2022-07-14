@@ -22,6 +22,47 @@ https://www.bilibili.com/video/BV1Zv411G7ty
 
 # 2022年7月
 
+## 14日
+
+### 复制/剪切方案
+
+- 问题1：用组合键（ctrl + c / ctrl + v）不够快，而且经常出现中间状态粘滞，
+
+- 问题2：复制出来的问题是rich text，不是plain text，经常在typora需要转格式
+
+- 解决1：通过chrome里面安装 auto copy组件解决以上两个问题
+
+  - 在chrome中，可以做到鼠标选中文本即复制为plain text，非常方便
+  - 下载地址 & 教程：https://www.chrome666.com/chrome-extension/auto_copy.html
+  - 官方商店地址：https://chrome.google.com/webstore/detail/auto-copy/bijpdibkloghppkbmhcklkogpjaenfkg?hl=zh-CN
+  - firefox也有类似的组件，不过需要鼠标按住0.8秒
+  - 注意这个设置，这样就是plain text
+
+  ![1657763676904](images/1657763676904.png)
+
+- 方案2：鼠标快捷键
+
+  - 我使用的是dell ms5320w，左侧有两个快捷键，分别设置为复制 和 黏贴，这样更通用，但是没有鼠标选择即复制方便，
+  - 两个方案结合着用吧，方案1主要是用于复制， 方案2 主要是用于黏贴和复制链接栏地址
+  - 管理工具dell peripheral manager：https://www.dell.com/support/home/zh-cn/drivers/driversdetails?driverid=j9mvc
+  - 设置
+
+  ![1657764200746](images/1657764200746.png)
+
+- 方案3：特例，typera里面设置快捷键
+
+  - https://www.bilibili.com/read/cv12926679
+  - https://blog.csdn.net/weixin_30619101/article/details/97707926
+
+
+
+## 13日
+
+### pulsar
+
+- 参考：Apache Pulsar那些和性能相关的设计 https://www.bilibili.com/video/BV1cL4y1h7tr
+- 笔记：[pulsar笔记](/bigdata/pulsar/pulsar-note.md)
+
 ## 12日
 
 ## tdengine tech day

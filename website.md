@@ -7,6 +7,14 @@
 - 如何避免蓝牙设备被断开：https://jingyan.baidu.com/article/1612d5007362dba30e1eee9f.html
 
 ## 工具
+### typora
+
+- 教程：https://www.laobuluo.com/7406.html
+- 国内下载：https://dl.lizhi.io/typora
+- 淘宝购买：https://item.taobao.com/item.htm?id=672475990730
+
+### 未分类
+
 - 微信公众号 Markdown 编辑器 - OpenWrite
   https://md.openwrite.cn/
 - 文件分享网站：文叔叔 https://www.wenshushu.cn/
