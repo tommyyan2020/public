@@ -32,3 +32,11 @@
   - 远程：http://wcl.cs.rpi.edu/pilots/library/papers/consensus/RAFTOngaroPhD.pdf
   - 中文翻译：https://www.jianshu.com/u/42a8d2387a37
 
+
+
+
+
+- Multi-Runtime Microservices Architecture
+  - 多运行时微服务架构：作者Bilgin Ibryam，Red Hat首席架构师
+  - 英文：http://www.ofbizian.com/2020/05/multi-runtime-microservices-architecture.html
+  - 中文：https://www.jianshu.com/p/7f6634b3695d

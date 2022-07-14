@@ -6,11 +6,12 @@
 
 ## 7月
 
+- 14日：[云原生笔记](/cncf/cncf-note.md)
 - 13日：[pulsar笔记](/bigdata/pulsar/pulsar-note.md)
 - 12日：[raft协议](/general/theory/raft.md)
 - 4日：[tdengine笔记](/bigdata/tdengine/tdengine-note.md)
 
-## 6月
+## 6月/
 
 - 18日
   - google开发套件
@@ -47,7 +48,7 @@
 
 ## 2月
 
-- nginx容器化实战：[链接](general/k8s/case_nginx.md)
+- nginx容器化实战：[链接](/cncf/k8s/case_nginx.md)
 
 # 2021年
 

@@ -24,6 +24,11 @@ https://www.bilibili.com/video/BV1Zv411G7ty
 
 ## 14日
 
+### TDEgine Tech Day
+
+- 云原生之下，RocketMQ之上： https://www.bilibili.com/video/BV1Rb4y1y7Mc
+- [云原生笔记](/cncf/cncf-note.md)
+
 ### 复制/剪切方案
 
 - 问题1：用组合键（ctrl + c / ctrl + v）不够快，而且经常出现中间状态粘滞，
@@ -35,7 +40,7 @@ https://www.bilibili.com/video/BV1Zv411G7ty
   - 在chrome中，可以做到鼠标选中文本即复制为plain text，非常方便
   - 下载地址 & 教程：https://www.chrome666.com/chrome-extension/auto_copy.html
   - 官方商店地址：https://chrome.google.com/webstore/detail/auto-copy/bijpdibkloghppkbmhcklkogpjaenfkg?hl=zh-CN
-  - firefox也有类似的组件，不过需要鼠标按住0.8秒
+  - firefox也有类似的组件，不过需要鼠标按住0.8秒，
   - 注意这个设置，这样就是plain text
 
   ![1657763676904](images/1657763676904.png)

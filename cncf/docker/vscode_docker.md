@@ -11,5 +11,7 @@
 
 [docker下载](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
 
+这个方案很失败，不如直接用vscode + 虚拟机
+
 
 
