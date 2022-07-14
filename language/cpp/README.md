@@ -1,11 +1,8 @@
 # 资源
 
-### C语言 ## __VA_ARGS__ 宏 
+### 
 
-- ：https://www.cnblogs.com/alexshi/archive/2012/03/09/2388453.html
-
-
-
+- C语言 ## __VA_ARGS__ 宏 ：https://www.cnblogs.com/alexshi/archive/2012/03/09/2388453.html
 - acl库：https://github.com/acl-dev/acl
 
 # 基础
