@@ -55,7 +55,7 @@
 ## 12月
 
 - 31日 [Java程序执行&Flink程序执行](/bigdata/flink/flink_run.md)
-- 31日 [Maven配置中Dependency域的scope选项](//language/java/maven_dependency_scope.md)
+- 31日 [Maven配置中Dependency域的scope选项](/language/java/maven_dependency_scope.md)
 - 29日 [markdown的一些心得](/general/markdown-note.md)
 - 29日 [windows下搭建web环境](/general/windows-env-install.md)
 
